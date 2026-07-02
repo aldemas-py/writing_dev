@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quill and Ink Icon</title>
+    <style>
+      :root {
+        --dark-outline: #3f3661;
+        --bottle-base: #7b84cc;
+        --bottle-ink: #6c72ab;
+        --feather-red: #ff7473;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #fdfdfd;
+      }
+
+      .icon-container {
+        position: relative;
+        width: 250px;
+        height: 250px;
+      }
+
+      /* --- INK BOTTLE --- */
+      .ink-bottle {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        width: 130px;
+        height: 120px;
+      }
+
+      /* Bottle Base */
+      .bottle-body {
+        position: absolute;
+        bottom: 0;
+        width: 120px;
+        height: 95px;
+        background: var(--bottle-base);
+        border: 8px solid var(--dark-outline);
+        border-radius: 40px 40px 45px 45px;
+        overflow: hidden;
+      }
+
+      /* Dark Ink Level Inside */
+      .bottle-ink {
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 50px;
+        background: var(--bottle-ink);
+        padding-bottom: 10%;
+        border-radius: 10px 10px 33px 33px;
+        overflow: hidden;
+        /* border-top: 8px solid var(--dark-outline); */
+      }
+
+      /* Bottle Neck / Opening */
+      .bottle-neck {
+        position: absolute;
+        bottom: 103px;
+        left: 31px;
+        width: 60px;
+        height: 25px;
+        background: var(--bottle-base);
+        border: 8px solid var(--dark-outline);
+        border-bottom: none;
+        border-radius: 12px 12px 0 0;
+        z-index: 2;
+      }
+
+      /* Lip Rim of the Bottle */
+      .bottle-lip {
+        position: absolute;
+        bottom: 110px;
+        left: 28px;
+        width: 64px;
+        height: 12px;
+        background: var(--bottle-base);
+        border: 8px solid var(--dark-outline);
+        border-bottom: none;
+        border-radius: 20px;
+        z-index: 3;
+      }
+
+      /* --- QUILL PEN --- */
+      .quill {
+        position: absolute;
+        bottom: 62px;
+        left: 35px;
+        width: 185px;
+        height: 200px;
+        z-index: 4;
+        transform: rotate(-5deg);
+        transform-origin: bottom left;
+      }
+
+      .quill svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+
+      .feather-body {
+        fill: var(--feather-red);
+        stroke: var(--dark-outline);
+        stroke-width: 7;
+        stroke-linejoin: round;
+      }
+
+      .quill-stem,
+      .feather-vein,
+      .feather-notch {
+        fill: none;
+        stroke: var(--dark-outline);
+        stroke-width: 6;
+        stroke-linecap: round;
+      }
+
+      .feather-notch {
+        stroke-width: 5;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="icon-container">
+      <!-- Ink Bottle -->
+      <!-- <div class="bottle-lip"></div> -->
+      <div class="bottle-neck"></div>
+      <div class="bottle-body">
+        <div class="bottle-ink"></div>
+      </div>
+      <div class="quill">
+        <svg viewBox="0 0 210 220" aria-hidden="true">
+          <!-- Feather body -->
+          <path
+            class="feather-body"
+            d="
+                    M63 127
+                    C43 113 39 91 51 72
+                    C68 43 106 24 158 24
+                    C174 24 190 28 236 37
+                    C184 56 185 95 145 85
+                    C125 135 65 135 60 125
+                    Z
+                
+                "
+          />
+          <!-- <path
+            class="feather-body"
+            d="
+                    M63 127
+                    C43 113 39 91 51 72
+                    C68 43 106 24 158 24
+                    C174 24 190 28 196 41
+                    C184 56 185 110 130 88
+                    C125 110 220 125 95 125
+                    C159 103 40 136 83 126
+                    Z
+                
+                "
+          /> -->
+
+          <!-- Small base notch to make it feel more like a feather -->
+          <!-- <path class="feather-notch" d="M63 125 C58 113 62 102 75 91" /> -->
+
+          <!-- Quill stem -->
+          <path class="quill-stem" d="M43 208 C49 168 57 136 67 116" />
+
+          <!-- Inner feather vein -->
+          <path class="feather-vein" d="M68 114 C96 88 130 39 170 49" />
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>
