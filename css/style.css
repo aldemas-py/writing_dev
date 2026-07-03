@@ -20,17 +20,22 @@ body {
     align-items: center;
 }
 
+.body_container {
+    /* position: relative; */
+    padding: 2vw 2vh 8px 2vw;
+    width: 95vw;
+}
+
 .header,
 .main,
 .footer {
-    /* position: relative; */
-    padding: 2vw 2vw 8px 10vw;
-    width: 95vw;
+    padding: 2vw 2vw 8px 2vw;
+    /* width: 95vw; */
 }
 
 .header {
     display: inline-block;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     overflow: hidden;
 
@@ -43,6 +48,7 @@ body {
     align-items: center;
     overflow: visible;
     padding: 0 0px 2vw 0;
+    width: inherit;
 }
 
 .header .home a {
@@ -51,12 +57,11 @@ body {
     font-size: 1.5rem;
     font-weight: 300;
     margin-right: 8px;
-    width: 60vw;
+    width: 74dvw;
 }
 
 .header .heading {
-    display: inline-flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     text-align: center;
     align-items: center;
@@ -64,9 +69,10 @@ body {
     padding: 8px 0px 8px 0px;
 }
 
-.header .icon-container_feather img {
-    width: 60%;
+.header .heading img {
+    width: 22vw;
     height: 15%;
+    margin-left: - 10px;
 }
 
 .header .heading h3,
