@@ -54,7 +54,7 @@ body {
 .header .home a {
     text-decoration: none;
     color: aliceblue;
-    font-size: 1.5rem;
+    font-size: 1.0rem;
     font-weight: 300;
     margin-right: 8px;
     width: 74dvw;
@@ -106,4 +106,66 @@ hr {
 .category_listing {
     border: #232830;
     padding-top: 0%;
+}
+
+.body_container .category_listing {
+    /* Match the width of the parent container */
+    width: 100%;
+
+    /* Horizontal single-line scroller */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    /* Align chips to the left */
+    justify-content: flex-start;
+
+    /* Hide scrollbars */
+    scrollbar-width: none;
+    /* Firefox */
+    position: relative;
+}
+
+.body_container .category_listing::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+/* Fade/shadow at the end so items appear to disappear into it */
+.body_container .category_listing::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 48px;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(35, 40, 48, 0), rgba(35, 40, 48, 1));
+}
+
+.body_container .category_listing .list_item {
+    flex: 0 0 auto;
+}
+
+.body_container .category_listing .list_item p {
+    /* background-color: #FF7575; */
+    color: aliceblue;
+    width: max-content;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    font-family: Recursive;
+    padding: 8px 16px;
+    margin: 4px;
+    border-radius: 8px;
+}
+
+.body_container .articles {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 160px;
+    font-size: 0.7rem;
 }
