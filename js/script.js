@@ -1,5 +1,5 @@
 
-// Renders articles.html 5 times into .articles container
+// Renders articles.html 5 times into .articles_listing container
 (() => {
   const container = document.querySelector(".articles_listing");
   if (!container) return;
