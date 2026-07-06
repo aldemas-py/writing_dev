@@ -1,21 +1,27 @@
 
-// Renders articles.html 5 times into .articles_listing container
+// Renders articles.html with different images cycling through Image1, Image2, Image3
 (() => {
   const container = document.querySelector(".articles_listing");
   if (!container) return;
 
   const times = 19;
+  const images = ["Image1", "Image2", "Image3"];
 
-  const load = () =>
-    fetch("articles.html", { cache: "no-store" })
-      .then((res) => {
-        if (!res.ok) throw new Error(`Failed to fetch articles.html (${res.status})`);
-        return res.text();
+  fetch("articles.html", { cache: "no-store" })
+    .then((res) => {
+      if (!res.ok) throw new Error(`Failed to fetch articles.html (${res.status})`);
+      return res.text();
+    })
+    .then((htmlTemplate) => {
+      const htmlParts = Array.from({ length: times }, (_, index) => {
+        const imageIndex = index % images.length;
+        const imageName = images[imageIndex];
+        // Replace the image src with the current image in rotation
+        return htmlTemplate.replace(
+          /src="images\/[^"]*\.png"/,
+          `src="images/${imageName}.png"`
+        );
       });
-
-  Promise.all(Array.from({ length: times }, load))
-    .then((htmlParts) => {
-      // Insert as separate blocks so each fetch result is preserved
       container.innerHTML = htmlParts.join("\n");
     })
     .catch((err) => {
