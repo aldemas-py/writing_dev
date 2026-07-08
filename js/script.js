@@ -1,7 +1,7 @@
 
-// Renders articles.html 19 times into .articles_listing container with unique images
+// Renders articles.html 19 times into .articles container with unique images
 (() => {
-  const container = document.querySelector(".articles_listing");
+  const container = document.querySelector(".articles");
   if (!container) return;
 
   const times = 19;
@@ -33,6 +33,49 @@
           img.alt = `Article Image ${index + 1}`;
         }
       });
+
+      const scrollButtons = document.querySelectorAll(".scrollbar ul li");
+      const categoryButtons = document.querySelectorAll(".category_listing .list_item");
+      const scrollContainer = document.querySelector(".articles_listing");
+      const articleItems = Array.from(container.querySelectorAll(".article_item"));
+
+      if (scrollContainer && articleItems.length) {
+        const categoryGroups = categoryButtons.length || 1;
+        const categoryChunk = Math.ceil(articleItems.length / categoryGroups);
+
+        categoryButtons.forEach((button, buttonIndex) => {
+          button.addEventListener("click", () => {
+            const targetIndex = Math.min(buttonIndex * categoryChunk, articleItems.length - 1);
+            const targetArticle = articleItems[targetIndex];
+            if (!targetArticle) return;
+
+            scrollContainer.scrollTo({
+              top: targetArticle.offsetTop,
+              left: 0,
+              behavior: "smooth",
+            });
+          });
+        });
+      }
+
+      if (scrollContainer && scrollButtons.length && articleItems.length) {
+        const groups = 5;
+        const chunkSize = Math.ceil(articleItems.length / groups);
+
+        scrollButtons.forEach((button, buttonIndex) => {
+          button.addEventListener("click", () => {
+            const targetIndex = Math.min(buttonIndex * chunkSize, articleItems.length - 1);
+            const targetArticle = articleItems[targetIndex];
+            if (!targetArticle) return;
+
+            scrollContainer.scrollTo({
+              top: targetArticle.offsetTop,
+              left: 0,
+              behavior: "smooth",
+            });
+          });
+        });
+      }
     })
     .catch((err) => {
       console.error(err);
