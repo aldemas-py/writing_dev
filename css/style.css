@@ -249,7 +249,7 @@ hr {
     justify-content: center;
     gap: 12px;
     padding: 18px 0 0;
-    margin: 0;
+    margin: 20px;
     list-style: none;
 }
 
@@ -278,6 +278,19 @@ hr {
     color: rgba(255, 255, 255, 0.65);
     font-size: 0.95rem;
     text-align: center;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* width: 95%; */
+    margin: 0 auto 1rem;
+    justify-content: space-between;
+    border: 1px solid #DAD7D0;
+    box-shadow: 0 6px 18px rgba(28, 25, 23, 0.08);
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    /* background: #FFFFFF; */
 }
 
 @media (max-width: 860px) {
